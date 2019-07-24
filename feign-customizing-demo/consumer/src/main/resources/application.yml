@@ -15,6 +15,6 @@ eureka:
     prefer-ip-address: true
     # 显示应用名称:ip:instance id:端口
     instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
-#  ribbon-demo-provider:
-#    ribbon:
-#      NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+logging:
+  level:
+    cn.dfun.consumer.feign.UserFeignClient: DEBUG
