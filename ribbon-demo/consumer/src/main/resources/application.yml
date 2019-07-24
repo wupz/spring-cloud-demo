@@ -1,0 +1,20 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: ribbon-demo-consumer
+eureka:
+  client:
+    # 健康检查
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://user:password123@localhost:8761/eureka
+  instance:
+    # 左下角显示ip地址
+    prefer-ip-address: true
+    # 显示应用名称:ip:instance id:端口
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+#  ribbon-demo-provider:
+#    ribbon:
+#      NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
