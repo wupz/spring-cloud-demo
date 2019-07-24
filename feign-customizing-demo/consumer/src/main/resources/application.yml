@@ -18,3 +18,10 @@ eureka:
 logging:
   level:
     cn.dfun.consumer.feign.UserFeignClient: DEBUG
+
+# 解决第一次请求报超时异常的方案：
+# hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000
+# 或者：
+# hystrix.command.default.execution.timeout.enabled: false
+# 或者：索性禁用feign的hystrix支持
+feign.hystrix.enabled: false
